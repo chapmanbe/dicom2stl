@@ -393,7 +393,8 @@ if verbose:
 
 #vtkname =  tempDir+"/vol.vtk"
 #sitk.WriteImage( img, vtkname )
-
+outname_base = os.path.splitext(outname)[0]
+sitk.WriteImage(img, outname+"_vol.dcm")
 import platform
 import sitk2vtk
 import vtk
