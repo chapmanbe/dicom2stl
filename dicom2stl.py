@@ -374,6 +374,8 @@ if medianFilter:
     img = sitk.Median(img, [3,3,1])
     elapsedTime(t)
     gc.collect()
+outname_base = os.path.splitext(outname)[0]
+sitk.WriteImage(img, outname+"_vol.dcm")
 
 # Pad black to the boundaries of the image
 #
@@ -393,8 +395,6 @@ if verbose:
 
 #vtkname =  tempDir+"/vol.vtk"
 #sitk.WriteImage( img, vtkname )
-outname_base = os.path.splitext(outname)[0]
-sitk.WriteImage(img, outname+"_vol.dcm")
 import platform
 import sitk2vtk
 import vtk
